@@ -21,10 +21,15 @@ class UsersController < ApplicationController
 
   end
 
+  def zip
+    @user = current_user.address
+    render json: {address: current_user.address}
+  end
+
   private
-  #///////////
+
   def user_params
-    params.require(:user).permit(:name, :email, :username, :zipcode, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :username, :address, :password, :password_confirmation)
   end
 
 end
