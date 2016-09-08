@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to @user }
+        format.html { redirect_to pets_up_path }
         format.json { render :show, status: :created }
       else
         format.html { render :new }
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :username, :company_name, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :username, :zipcode, :password, :password_confirmation)
   end
-  
+
 end

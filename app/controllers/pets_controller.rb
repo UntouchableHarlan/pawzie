@@ -4,11 +4,11 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.new(pet_params)
     respond_to do |format|
       if @pet.save
         session[:user_id] = @pet.id
-        format.html { redirect_to @pet }
+        format.html { redirect_to home_path }
         format.json { render :show, status: :created }
       else
         format.html { render :new }

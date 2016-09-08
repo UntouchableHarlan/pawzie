@@ -1,2 +1,20 @@
-<h1>Pets#new</h1>
-<p>Find me in app/views/pets/new.html.erb</p>
+<div class="sign-up container">
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The @petorm contains <%= pluralize(@pet.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @pet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= bootstrap_form_for(@pet) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :breed %>
+    <%= f.text_area :info %>
+    <%= f.submit "Register Pet" %>
+  <% end %>
+</div>
