@@ -1,3 +1,21 @@
 <div id="map">
 
 </div>
+  <br>
+<div class="container" id="nearbyUsers">
+  <div class="row">
+    <% @nearby.each do |user| %>
+      <div class="col-md-4">
+        <img class="img-circle img-responsive img-center" src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" id="pet-pic">
+        <br>
+        <div id="nearbyPic">
+          <img class="img-circle img-responsive img-center" src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" id="user-pic">
+        </div>
+        <h2 id="nearby-name"><%= user.name %></h2>
+        <p id="nearbyPlace">
+          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= "#{user.city}, #{user.state}" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
