@@ -1,7 +1,8 @@
 <div class="sign-up container">
-  <%= bootstrap_form_for(@user) do |f| %>
+  <%= bootstrap_form_for(@user, html: { multipart: true }) do |f| %>
   <%= f.file_field :image %>
   <%= f.text_field :name %>
+  <%= f.text_field :username %>
   <%= f.email_field :email %>
   <%= f.text_field :address %>
   <%= f.text_field :city %>

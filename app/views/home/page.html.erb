@@ -15,7 +15,7 @@
         <img class="img-circle img-responsive img-center" src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" id="pet-pic">
         <br>
         <div id="nearbyPic">
-          <img class="img-circle img-responsive img-center" src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" id="user-pic">
+          <%= image_tag user.image.url(:thumb), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
         </div>
         <h2 id="nearby-name"><%= user.name %></h2>
         <p id="nearbyPlace">

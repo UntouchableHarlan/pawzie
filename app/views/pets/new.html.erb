@@ -2,7 +2,7 @@
   <% if @pet.errors.any? %>
     <div id="error_explanation">
       <div class="alert alert-danger">
-        The @petorm contains <%= pluralize(@pet.errors.count, "error") %>.
+        The form contains <%= pluralize(@pet.errors.count, "error") %>.
       </div>
       <ul>
       <% @pet.errors.full_messages.each do |msg| %>
@@ -11,10 +11,11 @@
       </ul>
     </div>
   <% end %>
-  <%= bootstrap_form_for(@pet) do |f| %>
+  <%= bootstrap_form_for(@pet, html: { multipart: true }) do |f| %>
+    <%= f.file_field :image %>
     <%= f.text_field :name %>
     <%= f.text_field :breed %>
     <%= f.text_area :info %>
-    <%= f.submit "Register Pet" %>
+    <%= f.submit "Register Pet", class: "btn btn-success" %>. <%= link_to "No Pet?", "#", class: "btn btn-warning"%>
   <% end %>
 </div>
