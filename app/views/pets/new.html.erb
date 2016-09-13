@@ -11,11 +11,12 @@
       </ul>
     </div>
   <% end %>
-  <%= bootstrap_form_for(@pet, html: { multipart: true }) do |f| %>
+  <%= bootstrap_form_for(new_user_pet_path(current_user), html: { multipart: true }) do |f| %>
     <%= f.file_field :image %>
     <%= f.text_field :name %>
     <%= f.text_field :breed %>
     <%= f.text_area :info %>
-    <%= f.submit "Register Pet", class: "btn btn-success" %>. <%= link_to "No Pet?", "#", class: "btn btn-warning"%>
+    <%= f.submit "Register Pet", class: "btn btn-success" %>, <%= link_to "No Pet?", "#", class: "btn btn-warning"%>
+    
   <% end %>
 </div>

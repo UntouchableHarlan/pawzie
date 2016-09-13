@@ -30,6 +30,7 @@ gem 'bootstrap_form'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem "paperclip"
+gem 'gon'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

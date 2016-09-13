@@ -1,6 +1,8 @@
 <br>
 <div class="container" style="padding-left: 25%;">
-  <%= image_tag @user.image.url(:medium), id: 'user-id-pic' %>
+  <div class="col-lg-12">
+    <%= image_tag @user.image.url(:medium), class: "img-responsive img-center", id: 'user-id-pic' %>
+  </div>
   <br>
   <div class="row">
     <% if current_user.id == @user.id %>
@@ -22,7 +24,7 @@
   <div class="row">
     <% @pets.each_with_index do |pet, num| %>
     <div class="col-md-4" id="insta-pet">
-      <%= image_tag pet.image.url(:medium), id: 'user-pet-pic', data: { toggle: "lightbox" } %>
+      <%= image_tag pet.image.url(:medium), class: "img-responsive img-center", id: 'user-pet-pic', data: { toggle: "lightbox" } %>
       <p id="pet-name"><%= link_to "#{pet.name}", user_pet_path(@user) %></p>
     </div>
     <% end %>

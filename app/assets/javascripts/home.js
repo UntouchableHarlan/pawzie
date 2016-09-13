@@ -58,7 +58,11 @@
           });
 
           google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(place.name);
+            var thePlace = "<ul>"
+            thePlace += "<li style='list-style-type: none;'>" + place.name + "</li>"
+            thePlace += "<li style='list-style-type: none;'>" + place.vicinity + "</li>"
+            thePlace += "</ul>"
+            infowindow.setContent(thePlace);
             infowindow.open(map, this);
           });
         }
