@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
-        format.html { redirect_to @user }
+        format.html { redirect_to home_path }
         format.json { render :show, status: :created }
       else
         format.html { render :new }
@@ -20,5 +20,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
-  
+
 end

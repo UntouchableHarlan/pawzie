@@ -11,17 +11,19 @@
 <div class="container" id="nearbyUsers">
   <div class="row">
     <% @nearby.each do |user| %>
-      <div class="col-md-4">
-        <img class="img-circle img-responsive img-center" src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" id="pet-pic">
-        <br>
-        <div id="nearbyPic">
-          <%= image_tag user.image.url(:thumb), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
-        </div>
-        <h2 id="nearby-name"><%= user.name %></h2>
-        <p id="nearbyPlace">
-          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= "#{user.city}, #{user.state}" %>
-        </p>
-      </div>
+      <% if user.pets.count >= 1 %>
+          <div class="col-md-4">
+            <%= image_tag user.pets.first.image.url(:medium), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
+            <br>
+            <div id="nearbyPic">
+              <%= image_tag user.image.url(:thumb), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
+            </div>
+            <h2 id="nearby-name"><%= link_to "#{user.name}", user, id: "nearme" %></h2>
+            <p id="nearbyPlace">
+              <i class="fa fa-map-marker" aria-hidden="true"></i> <%= "#{user.city}, #{user.state}" %>
+            </p>
+          </div>
+      <% end %>
     <% end %>
   </div>
 </div>

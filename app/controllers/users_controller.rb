@@ -18,7 +18,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @pets = @user.pets
+  end
 
+  def edit
+    @user = current_user
   end
 
   def zip
