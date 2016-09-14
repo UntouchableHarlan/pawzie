@@ -1,10 +1,12 @@
 class PetsController < ApplicationController
   def new
-    @pet = current_user.pets.new
+    @user = current_user
+    @pet = @user.pets.build
   end
 
   def create
-    @pet = current_user.pets.new(pet_params)
+    @user = current_user
+    @pet = @user.pets.build(pet_params)
     respond_to do |format|
       if @pet.save
         format.html { redirect_to home_path }
