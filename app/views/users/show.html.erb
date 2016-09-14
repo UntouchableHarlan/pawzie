@@ -11,7 +11,7 @@
     </div>
     <% else %>
     <div class="col-md-6">
-      <h5> <i class="fa fa-envelope fa-lg" aria-hidden="true"></i> <%= link_to "Direct Message", '' %> </h5>
+      <h5> <i class="fa fa-envelope fa-lg" aria-hidden="true"></i> <%= link_to "Direct Message", conversations_path(sender_id: current_user.id, recipient_id: @user.id) %> </h5>
     </div>
     <% end %>
     <div class="col-md-12" id="pet-thingy">

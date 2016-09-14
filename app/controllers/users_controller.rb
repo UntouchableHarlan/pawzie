@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :already_user?, only: [:new]
   def new
     @user = User.new
   end
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to pets_up_path }
+        format.html { redirect_to new_user_pet_path(current_user) }
         format.json { render :show, status: :created }
       else
         format.html { render :new }

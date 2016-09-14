@@ -1,4 +1,5 @@
 <br>
+<h2 style="text-align:center">Dog Parks Nearby</h2>
 <div id="map">
 
 </div>
@@ -19,11 +20,11 @@
             <%= image_tag user.pets.first.image.url(:medium), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
             <br>
             <div id="nearbyPic">
-              <%= image_tag user.image.url(:thumb), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
+              <%= image_tag user.image.url(:thumb), class: "img-responsive img-center", id: 'pet-pic' %>
             </div>
             <h2 id="nearby-name"><%= link_to "#{user.name}", user, id: "nearme" %></h2>
             <p id="nearbyPlace">
-              <i class="fa fa-map-marker" aria-hidden="true"></i> <%= "#{user.city}, #{user.state}" %>
+              <i class="fa fa-map-marker" aria-hidden="true"></i> <%= user.distance.round(2) %>m. <%= "#{user.city}, #{user.state}" %>
             </p>
           </div>
       <% end %>
