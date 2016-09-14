@@ -6,6 +6,4 @@ class HomeController < ApplicationController
   def page
     @nearby = User.near([current_user.latitude, current_user.longitude])
   end
-
-  
 end

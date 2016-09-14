@@ -31,7 +31,7 @@
           <% if current_user %>
           <ul class="nav navbar-nav">
             <li><%= link_to "Home", home_path %></li>
-            <li><%= link_to "New Pet", pets_up_path %></li>
+            <li><%= link_to "New Pet", new_user_pet_path(current_user) %></li>
             <li><a href="#">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
