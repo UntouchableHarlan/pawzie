@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
-
+    if params[:shelters]
+      # Return the places on the google map
+    end
   end
 
   def page
