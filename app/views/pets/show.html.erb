@@ -3,4 +3,10 @@
 <% if @user.id != current_user.id %>
   <h5 style="margin-left: 43%;"> <i class="fa fa-envelope fa-lg" aria-hidden="true"></i> <%= link_to "Direct Message Owner", conversations_path(sender_id: current_user.id, recipient_id: @user.id) %> </h5>
 <% end %>
-<p style="text-align: center">Owned by <%= @pet.user.name %></p>
+<p style="text-align: center">Owned by <%= link_to "#{@pet.user.name}", user_path(@pet.user) %></p>
+
+<% @pet.posts.each do |dog| %>
+<div class="col-md-4">
+  <%= image_tag dog.image.url(:medium), class: "img-responsive" %>
+</div>
+<% end %>
