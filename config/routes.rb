@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'messages/index'
 
   get 'conversations/index'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :posts
   resources :users do
     resources :pets
   end

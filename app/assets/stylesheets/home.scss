@@ -48,5 +48,40 @@
 }
 
 #nearby-user-information {
-  
+
+}
+
+.nearby-wrapper {
+  padding-top: 40px;
+  margin: 0 auto;
+  max-width: 642px;
+  width: 100%;
+  margin: 0 auto !important;
+}
+
+.nearby {
+  background-color: #fff;
+  border-color: #edeeee;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  margin-bottom: 60px;
+}
+
+.nearby-head {
+  height: 64px;
+  padding: 14px 20px;
+  color: #125688;
+  font-size: 15px;
+  line-height: 18px;
+  .thumbnail {}
+  .names {
+    display: block;
+  }
+}
+
+.nearby-caption {
+  padding: 24px 24px;
+  font-size: 15px;
+  line-height: 18px;
 }

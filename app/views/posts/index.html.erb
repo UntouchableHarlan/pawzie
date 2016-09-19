@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <h2 style="text-align: center;">Neaby Users Pawxie Feed</h2>
+  <div class="posts-wrapper row">
+    <% @nearby.each do |user| %>
+    <% user.posts.each do |post| %>
+      <div class="post">
+        <div class="post-head">
+          <div class="names">
+            <%= link_to "#{post.user.name}", user_path(user) %> <br>
+            <%= post.pet.name %>
+          </div>
+        </div>
+        <div class="image center-block">
+          <%= image_tag post.image.url(:medium), class: "img-responsive" %>
+        </div>
+        <p><%= post.caption %></p>
+      </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

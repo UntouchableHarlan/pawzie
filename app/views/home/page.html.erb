@@ -12,18 +12,21 @@
   </div>
 </div>
 <br>
-<div class="container" id="nearbyUsers">
-  <div class="row">
+<div class="container-fluid" id="nearbyUsers">
+  <div class="nearby-wrapper row">
     <% @nearby.each do |user| %>
       <% if user.pets.count >= 1 %>
-          <div id="nearby-user-information">
-            <%= image_tag user.pets.first.image.url(:medium), class: " img-responsive img-center", id: 'pet-pic' %>
-            <br>
-            <div id="nearbyPic">
-              <%#= image_tag user.image.url(:thumb), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
+          <div id="nearby-user-information" class="nearby">
+            <div class="nearby-head">
+              <div class="name">
+                <%= image_tag user.image.url(:thumb), class: "img-circle img-responsive img-center", id: 'pet-pic', style: "height: 31px;" %>
+                <%= link_to "#{user.name}", user_path(user) %>
+              </div>
             </div>
-            <h2 id="nearby-name"><%= link_to "#{user.name}", user, id: "nearme" %></h2>
-            <p id="nearbyPlace">
+            <div class="image center-block">
+              <%= image_tag user.pets.first.image.url(:medium), class: " img-responsive img-center", id: 'pet-pic' %>
+            </div>
+            <p class="nearby-caption">
               <i class="fa fa-map-marker" aria-hidden="true"></i> <%= user.distance.round(2) %>m. <%= "#{user.city}, #{user.state}" %>
             </p>
           </div>
