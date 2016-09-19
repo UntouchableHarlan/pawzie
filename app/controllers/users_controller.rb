@@ -27,6 +27,16 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      flash[:success] = "Successfully updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   def zip
     @longitude = current_user.longitude
     @latitude = current_user.latitude

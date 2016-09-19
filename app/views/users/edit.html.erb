@@ -2,6 +2,22 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
+    <% if @user.errors %>
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains <%= pluralize(@user.errors.count, "error") %>.
+        </div>
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 

@@ -1,5 +1,5 @@
 <br>
-<h2 style="text-align:center">Dog Parks Nearby</h2>
+<h2 style="text-align:center; font-family: 'Mitr';">Dog Parks Nearby</h2>
 <div id="map">
 
 </div>
@@ -8,7 +8,7 @@
 
 <div class="container">
   <div class="col-md-12">
-    <h2 style="text-align:center;">Local Pet Owners Near You!</h2>
+    <h2 style="text-align:center; font-family: 'Mitr';">Local Pet Owners Near You!</h2>
   </div>
 </div>
 <br>
@@ -16,8 +16,8 @@
   <div class="row">
     <% @nearby.each do |user| %>
       <% if user.pets.count >= 1 %>
-          <div class="col-md-4">
-            <%= image_tag user.pets.first.image.url(:medium), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
+          <div id="nearby-user-information">
+            <%= image_tag user.pets.first.image.url(:medium), class: " img-responsive img-center", id: 'pet-pic' %>
             <br>
             <div id="nearbyPic">
               <%#= image_tag user.image.url(:thumb), class: "img-circle img-responsive img-center", id: 'pet-pic' %>
