@@ -18,6 +18,11 @@ class PetsController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @pet = Pet.find_by(user: @user)
+  end
+
   private
 
   def pet_params

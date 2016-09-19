@@ -1,0 +1,6 @@
+<h1 style="text-align: center"><%= @pet.name%></h1>
+<%= image_tag @pet.image.url(:medium), class: " img-responsive img-center", id: 'pet-profile-pic' %>
+<% if @user.id != current_user.id %>
+  <h5 style="margin-left: 43%;"> <i class="fa fa-envelope fa-lg" aria-hidden="true"></i> <%= link_to "Direct Message Owner", conversations_path(sender_id: current_user.id, recipient_id: @user.id) %> </h5>
+<% end %>
+<p style="text-align: center">Owned by <%= @pet.user.name %></p>
