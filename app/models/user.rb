@@ -27,7 +27,5 @@ class User < ApplicationRecord
 
   end
 
-  def execpt_current_user(user)
-    user.reject { |u| u.id == self.id }
-  end
+  scope :all_except, ->(user) { where.not(id: user) }
 end
