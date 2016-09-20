@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comments/index'
+
   get 'messages/index'
 
   get 'conversations/index'
@@ -14,7 +16,12 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :posts
+  resources :posts do
+    resources :comments
+    member do
+      get 'like'
+    end
+  end
   resources :users do
     resources :pets
   end

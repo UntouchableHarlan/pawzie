@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts
+  has_many :comments, dependent: :destroy
   has_many :friendships
   has_many :friends, through: :friendships
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "missing.png"
