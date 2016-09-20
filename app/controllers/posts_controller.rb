@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @nearby = User.near([current_user.latitude, current_user.longitude])
+    @user = current_user
+    @post = Post.new
   end
 
   def new

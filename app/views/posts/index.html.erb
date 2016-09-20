@@ -1,4 +1,29 @@
-<div class="container-fluid">
+<!-- Modal -->
+<div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">New Pawzie Post</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'post_form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of post Modal -->
+<br>
+<aside>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#postModal">
+    New Post
+  </button>
+</aside>
+
+<div class="container-fluid" id="pawzie-feed">
   <h2 style="text-align: center;">Neaby Users Pawxie Feed</h2>
   <div class="posts-wrapper row">
     <% @nearby.each do |user| %>
