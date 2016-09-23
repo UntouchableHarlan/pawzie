@@ -1,13 +1,7 @@
 $(document).ready(function(){
-  $('#new_comment').submit(function(event){
+  $('#like-button').on('click', function(event){
     event.preventDefault();
-    $.ajax({
-      url: $(this).attr('action'),
-      type: $(this).attr('method'),
-      data: $(this).serialize(),
-      success: function(response) {
-        console.log(response);
-      }// end success
-    })// end ajax
-  }); // end new post submit
+    var img = $('#like-button').attr('src');
+    $('#like-button').attr('pawl.png', img)
+  });
 });

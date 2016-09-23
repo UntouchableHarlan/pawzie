@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:like]
   def index
     @posts = Post.all
     @nearby = User.near([current_user.latitude, current_user.longitude])
@@ -30,10 +31,19 @@ class PostsController < ApplicationController
   end
 
   def like
-
+    if @post.liked_by(current_user)
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.json
+      end
+    end
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def posts_params
     params.require(:post).permit(:image, :caption, :pet_id)

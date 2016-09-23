@@ -37,6 +37,11 @@
           <%= link_to (image_tag post.image.url(:medium), class: "img-responsive", id: "post-pet-pic"), post_path(post)%>
         </div>
         <div class="post-bottom">
+          <div class="likes">
+            <% if post.get_likes.size >= 1 %>
+              <%= "#{post.get_likes.size} likes" %>
+            <% end %>
+          </div>
           <p class="caption"><%= link_to "#{post.user.name}", user_path(user) %>: <%= post.caption %></p>
           <% post.comments.each do |comment| %>
             <% if post.comments %>
@@ -57,7 +62,7 @@
           <div class="comment-like-form row">
             <div class="like-form col-md-1">
               <%= link_to like_post_path(post.id), id: "like_#{post.id}" do %>
-                <i class='fa fa-heart-o fa-lg' aria-hidden='true' style='padding-top: 37%; font-size: 1.933333em !important;'></i>
+                <%= image_tag('pawliked.png', height: '40', width: '40', id: "like-button", alt: 'like')%>
               <% end %>
             </div>
             <div class="comment-form">

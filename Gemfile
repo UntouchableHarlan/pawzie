@@ -31,6 +31,8 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem "paperclip"
 gem 'gon'
+gem 'acts_as_votable'
+gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
