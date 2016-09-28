@@ -10,8 +10,8 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         flash[:success] = "You commented the hell out of that post!"
-        format.html { redirect_to posts_path(anchor: "post-comment-form-#{@post.id}") }
-        format.json { render status: :created }
+        format.html { redirect_to posts_path }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

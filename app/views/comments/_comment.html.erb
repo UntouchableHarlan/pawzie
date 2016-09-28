@@ -1,0 +1,10 @@
+
+  <div class="name">
+    <%= link_to "#{comment.user.name}", user_path(comment.user) %>
+  </div>
+  <div class="comment-content-<%= post.id %>">
+    <%= comment.content %>
+    <% if comment.user == current_user %>
+      <%= link_to "Delete", post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }%>
+    <% end %>
+  </div>

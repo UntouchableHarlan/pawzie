@@ -41,20 +41,12 @@
           <%= render 'like', post: post %>
           <p class="caption"><%= link_to "#{post.user.name}", user_path(user) %>: <%= post.caption %></p>
           <% post.comments.each do |comment| %>
+          <div class="comment_<%= post.id %>">
             <% if post.comments %>
-              <div class="comment">
-                <div class="name">
-                  <%= link_to "#{comment.user.name}", user_path(comment.user) %>
-                </div>
-                <div class="comment-content">
-                  <%= comment.content %>
-                  <% if comment.user == current_user %>
-                    <%= link_to "Delete", post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" }%>
-                  <% end %>
-                </div>
-              </div>
+              <%= render 'comments/comment', post: post, comment: comment%>
               <br>
             <% end %>
+          </div>
           <% end %>
           <div class="comment-like-form row">
             <div class="like-form col-md-1">
@@ -63,8 +55,8 @@
               <% end %>
             </div>
             <div class="comment-form">
-              <%= form_for([post, post.comments.new], remote: true) do |f| %>
-                <%= f.text_field :content, placeholder: "Add a comment...", class: "form-control" %>
+              <%= form_for([post, post.comments.build], remote: true) do |f| %>
+                <%= f.text_field :content, placeholder: "Add a comment...", class: "form-control", id: "comment_content_#{post.id}" %>
                 <%= f.submit "Post", class: "btn btn-info", style: "margin-left: 10px;" %>
               <% end %>
             </div>
