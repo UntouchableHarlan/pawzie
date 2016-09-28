@@ -10,6 +10,10 @@ function initMap() {
 
     // make map
     var mapDiv = document.getElementById('map');
+    if (!mapDiv) {
+      return;
+    }
+    
     var map = new google.maps.Map(mapDiv, {
       center: myLating,
       zoom: 11

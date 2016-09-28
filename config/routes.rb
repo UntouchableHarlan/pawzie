@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/home' => 'home#page'
   get '/grab_zip' => 'users#zip'
+  get '/like/:id' => 'posts#like'
 
 
   root 'home#index'

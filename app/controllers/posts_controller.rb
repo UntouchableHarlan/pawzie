@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:like]
+  before_action :set_post, only: [:like, :destroy]
   def index
-    @posts = Post.all
-    @nearby = User.near([current_user.latitude, current_user.longitude])
-    @user = current_user
-    @post = Post.new
+      @posts = Post.all
+      @nearby = User.near([current_user.latitude, current_user.longitude])
+      @user = current_user
+      @post = Post.new
   end
 
   def new
@@ -27,14 +27,15 @@ class PostsController < ApplicationController
   end
 
   def destroy
-
+    @post.delete
+    @post.save
   end
 
   def like
     if @post.liked_by(current_user)
       respond_to do |format|
         format.html { redirect_to :back }
-        format.json
+        format.js {}
       end
     end
   end

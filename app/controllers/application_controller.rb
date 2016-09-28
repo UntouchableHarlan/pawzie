@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
     @conversation = Conversation.find(params[:conversation_id])
   end
 
-  helper_method :current_user, :map_keys
+
+
+  helper_method :current_user
 
 end

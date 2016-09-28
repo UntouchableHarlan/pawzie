@@ -1,0 +1,12 @@
+var pawliked = $("#like_<%= @post.id %>_pic");
+pawliked.attr('src', '<%= image_url 'truepawliked.png' %>');
+
+$("#likes_<%= @post.id %>").html("<%= j (render partial: 'posts/like', locals: { post: @post} ) %>");
+
+//
+// $("#like_<%= @post.id %>").on('click', function(event) {
+//   console.log(pawliked);
+//
+//   pawliked = 'truepawliked.png'
+//   console.log(pawliked);
+// });
